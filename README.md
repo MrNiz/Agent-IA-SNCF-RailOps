@@ -42,7 +42,7 @@ Question : "Y a-t-il des travaux prévus sur la Ligne A ?"
 │ LangGraph StateGraph             │
 │ [router_node]                    │
 │ (routage conditionnel)           │
-└──────┬──────── ── ┬───────────┬──┘
+└──────┬────────────┬───────────┬──┘
        │            │           │
 ┌──────▼──────┐ ┌───▼──┐ ┌──────▼──────┐
 │ rag_node    │ │ sql  │ │travaux_node │
