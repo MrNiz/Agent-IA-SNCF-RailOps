@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copie du code et des données
 COPY app/ ./app/
 COPY data/ ./data/
-COPY .env .
+
 
 EXPOSE 8000
 
