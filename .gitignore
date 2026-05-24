@@ -1,0 +1,20 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Base de données (régénérée par init_db.py)
+data/railops.db
+
+# VectorStore (régénéré par ingest.py)
+data/vectorstore/
+
+# Variables d'environnement
+.env
+
+# Pytest
+.pytest_cache/
+
+# Podman/Docker
+*.tar
