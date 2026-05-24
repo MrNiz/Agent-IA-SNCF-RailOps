@@ -31,11 +31,12 @@ def ask(payload: Question):
 
 
 @app.post("/agent")
-def agent_ask(payload: Question):
-    """
-    Endpoint agent : combine RAG docs + SQL incidents.
-    L'agent choisit lui-même le bon outil selon la question.
-    """
-    agent = get_agent()
-    result = agent.invoke({"input": payload.question})
-    return {"answer": result["output"]}
+def agent_endpoint(payload: Question):
+    graph = get_agent()
+    result = graph.invoke({
+        "question": payload.question,
+        "tool_used": "",
+        "tool_result": "",
+        "answer": ""
+    })
+    return {"answer": result["answer"]}
