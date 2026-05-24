@@ -1,0 +1,61 @@
+# .github/workflows/ci.yml
+
+name: CI – RailOps Copilot
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer Ruff
+        run: pip install ruff
+
+      - name: Vérifier le style du code
+        run: ruff check app/ tests/ --ignore E501
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Initialiser la base SQLite
+        run: python -m scripts.init_db
+
+      - name: Lancer les tests
+        run: python -m pytest tests/ -v
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Créer un .env vide pour le build
+        run: touch .env
+
+      - name: Builder l'image Docker
+        run: docker build -t railops-copilot .
