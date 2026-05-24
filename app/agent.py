@@ -3,7 +3,7 @@
 from typing import TypedDict, Literal
 from langgraph.graph import StateGraph, END
 from langchain_ollama import ChatOllama
-from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.messages import HumanMessage
 
 from app.tools.rag_tool import search_documentation
 from app.tools.analytics import run_incident_query, search_travaux
