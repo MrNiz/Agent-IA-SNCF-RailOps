@@ -1,6 +1,6 @@
 # RailOps Copilot — Agent IA pour opérateurs ferroviaires
 
-> **Assistant intelligent SNCF** combinant RAG, LangGraph, agent multi-tools et API REST — entièrement local, zéro cloud, déployable via Docker.
+> **Assistant intelligent SNCF** combinant RAG, LangGraph, agent multi-tools et API REST — déployable via Docker.
 
 ![CI](https://github.com/MrNiz/Agent-IA-SNCF-RailOps/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
