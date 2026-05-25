@@ -121,6 +121,7 @@ L'API est accessible sur **http://localhost:8000/docs** (Swagger UI).
 | `GET` | `/health` | Statut de l'API |
 | `POST` | `/ask` | RAG pur — question sur les procédures |
 | `POST` | `/agent` | Agent LangGraph multi-tools (RAG + SQL incidents + travaux) |
+| Interface | Streamlit | `streamlit run streamlit_app.py` → http://localhost:8501 |
 
 ### Exemple `/ask`
 
@@ -167,6 +168,14 @@ docker run -p 8000:8000 railops-copilot
 ```
 
 ---
+## Interface utilisateur
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Interface accessible sur **http://localhost:8501** — permet aux opérateurs
+d'interroger l'agent en langage naturel sans passer par l'API directement.
 
 ## Structure du projet
 
